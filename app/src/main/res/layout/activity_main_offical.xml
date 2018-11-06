@@ -54,6 +54,18 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/mTextView_jsonArray" />
 
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/mTextView_customVolley"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="textView"
+            android:textColor="#00f"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mNetworkImageView" />
+
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/mButton"
             android:layout_width="match_parent"
@@ -61,6 +73,6 @@
             android:text="sendHttp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/mNetworkImageView" />
+            app:layout_constraintTop_toBottomOf="@id/mTextView_customVolley" />
     </android.support.constraint.ConstraintLayout>
 </ScrollView>

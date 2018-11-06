@@ -32,6 +32,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".volley_offical.MainActivityOffical"/>
+        <activity android:name=".volley_offical.MainEncapsulationAct"/>
     </application>
 
 </manifest>

@@ -1,12 +1,15 @@
 package jake.freedev.com.volley_offical;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatTextView;
+import android.view.View;
 
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader;
@@ -20,6 +23,9 @@ import org.json.JSONObject;
 
 import jake.freedev.com.HTTPurl;
 import jake.freedev.com.R;
+import jake.freedev.com.volley_offical.encapsulation.listener.RequestErrorResolver;
+import jake.freedev.com.volley_offical.encapsulation.listener.TextResponseListener;
+import jake.freedev.com.volley_offical.encapsulation.VolleyRequest;
 
 /**
  * author: yujie.zhang
@@ -27,12 +33,13 @@ import jake.freedev.com.R;
  * content: //官方volley网络请求测试
  * volley支持，字符串.Json.图像
  */
-public class MainActivityOffical extends AppCompatActivity {
+public class MainActivityOffical extends AppCompatActivity implements TextResponseListener , RequestErrorResolver, View.OnClickListener {
     String TAG=this.getClass().getSimpleName();
     AppCompatButton mButton;
     AppCompatTextView mTextView_String,mTextView_jsonObject,mTextView_jsonArray;
+    AppCompatTextView mTextView_customVolley;
     NetworkImageView mNetworkImageView;
-//    RequestQueue requestQueue;
+    RequestQueue requestQueue;
     ImageLoader imageLoader;
     StringRequest stringRequest;
     JsonObjectRequest jsonObjectRequest;
@@ -45,7 +52,7 @@ public class MainActivityOffical extends AppCompatActivity {
 
         initComponents();
         MySingleton mySingleton= MySingleton.getInstance(this);
-//        requestQueue=mySingleton.getRequestQueue();
+        requestQueue=mySingleton.getRequestQueue();
         imageLoader=mySingleton.getImageLoader();
 
         //字符串请求
@@ -92,6 +99,18 @@ public class MainActivityOffical extends AppCompatActivity {
         mySingleton.addRequestToRequestQueue(stringRequest);
         mySingleton.addRequestToRequestQueue(jsonObjectRequest);
         mySingleton.addRequestToRequestQueue(jsonArrayRequest);
+
+        //不彻底的封装
+        mySingleton.getRequestQueue().add(VolleyRequest.get(HTTPurl.url_string_path,this,this,100));
+
+
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mButton.setOnClickListener(this);
     }
 
     /**
@@ -103,5 +122,24 @@ public class MainActivityOffical extends AppCompatActivity {
         mTextView_jsonObject=findViewById(R.id.mTextView_jsonObject);
         mTextView_jsonArray=findViewById(R.id.mTextView_jsonArray);
         mNetworkImageView=findViewById(R.id.mNetworkImageView);
+
+        mTextView_customVolley=findViewById(R.id.mTextView_customVolley);
+    }
+
+    @Override
+    public void resolveError(int when, Throwable throwable, int code) {
+        mTextView_customVolley.setText(when+" ====="+throwable.toString()+"===="+code);
+    }
+
+    @Override
+    public void onResponse(String response, int code) {
+        mTextView_customVolley.append("增加=+++"+response+"+++"+code);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v.equals(mButton)){
+            startActivity(new Intent(this,MainEncapsulationAct.class));
+        }
     }
 }
