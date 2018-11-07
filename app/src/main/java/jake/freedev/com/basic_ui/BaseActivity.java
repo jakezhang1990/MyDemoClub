@@ -1,4 +1,4 @@
-package jake.freedev.com.demo1;
+package jake.freedev.com.basic_ui;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,7 +9,7 @@ import android.support.v7.app.AppCompatActivity;
  * date: 2018/10/24 14:48
  * content: //TODO
  */
-public class BaseDemo1Activity extends AppCompatActivity{
+public class BaseActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

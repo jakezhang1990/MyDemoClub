@@ -1,4 +1,4 @@
-package jake.freedev.com.volley_offical;
+package jake.freedev.com.volley_test.encapsulation;
 
 import android.content.Context;
 import com.android.volley.Request;
@@ -11,13 +11,13 @@ import com.android.volley.toolbox.Volley;
  * date: 2018/10/26 17:38
  * content: //RequestQueue与ImageLoader単例获取
  */
-public class MySingleton {
-    private static MySingleton mInstance;
+public class QueueInstanceManager {
+    private static QueueInstanceManager mInstance;
     private RequestQueue mRequestQueue;
     private ImageLoader mImageLoader;
     private Context mCtx;
 
-    private MySingleton(Context context){
+    private QueueInstanceManager(Context context){
         mCtx=context;
         mRequestQueue=getRequestQueue();
         mImageLoader=getImageLoader();
@@ -30,9 +30,9 @@ public class MySingleton {
      * @param context
      * @return
      */
-    public static synchronized MySingleton getInstance(Context context){
+    public static synchronized QueueInstanceManager getInstance(Context context){
         if (mInstance==null){
-            mInstance=new MySingleton(context);
+            mInstance=new QueueInstanceManager(context);
         }
         return mInstance;
     }

@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="jake.freedev.com">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -13,8 +13,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashActivity">
+
+        <activity android:name=".SplashActivity"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen">
+            <!--全屏-->
         </activity>
+        <activity
+            android:name=".WelcomeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity"
+            android:label="主页面"></activity>
         <activity
             android:name=".basic.BasicActivity"
             android:label="@string/title_activity_basic"
@@ -24,15 +38,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="android.support.v7.app.AppCompatActivity" />
         </activity>
-        <activity android:name=".demo1.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".volley_test.ui.VolleyTestAct0"
+            android:label="原生volley的simple应用"/>
+        <activity android:name=".volley_test.ui.VolleyTestAct1"
+            android:label="volley简单封装"/>
+        <activity android:name=".volley_test.ui.VolleyTestAct2"
+            android:label="深度封装volley"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".volley_offical.MainActivityOffical"/>
-        <activity android:name=".volley_offical.MainEncapsulationAct"/>
     </application>
 
 </manifest>

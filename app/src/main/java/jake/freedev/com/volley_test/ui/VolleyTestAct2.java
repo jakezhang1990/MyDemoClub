@@ -1,4 +1,4 @@
-package jake.freedev.com.volley_offical;
+package jake.freedev.com.volley_test.ui;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,15 +13,17 @@ import java.util.List;
 
 import jake.freedev.com.R;
 import jake.freedev.com.entity.CourseCardBean;
-import jake.freedev.com.volley_offical.encapsulation.listener.JsonResolver;
-import jake.freedev.com.volley_offical.encapsulation.listener.RequestErrorResolver;
+import jake.freedev.com.volley_test.encapsulation.HttpUtils;
+import jake.freedev.com.volley_test.encapsulation.QueueInstanceManager;
+import jake.freedev.com.volley_test.encapsulation.listener.JsonResolver;
+import jake.freedev.com.volley_test.encapsulation.listener.RequestErrorResolver;
 
 /**
  * author: yujie.zhang
  * date: 2018/11/6 11:26
  * content: //比较彻底的封装，封装后的网络请求
  */
-public class MainEncapsulationAct extends AppCompatActivity implements JsonResolver<Object>,RequestErrorResolver {
+public class VolleyTestAct2 extends AppCompatActivity implements JsonResolver<Object>,RequestErrorResolver {
 
     AppCompatTextView mTextView1,mTextView2;
     RequestQueue requestQueue;
@@ -33,20 +35,20 @@ public class MainEncapsulationAct extends AppCompatActivity implements JsonResol
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_offical2);
+        setContentView(R.layout.activity_volley_test2);
 
         mTextView1=findViewById(R.id.mTextView1);
         mTextView2=findViewById(R.id.mTextView2);
 
-        MySingleton mySingleton= MySingleton.getInstance(this);
-        requestQueue=mySingleton.getRequestQueue();
-        imageLoader=mySingleton.getImageLoader();
+        QueueInstanceManager requestManager = QueueInstanceManager.getInstance(this);
+        requestQueue= requestManager.getRequestQueue();
+        imageLoader= requestManager.getImageLoader();
 
         //封装后的发起请求
         int cardType=1;
         String cityCode="0571";
         int areaId=1;
-        HttpUtilsVolley.getCourseCard(requestQueue,cardType,cityCode,areaId,this,this,CODE_CARDS);
+        HttpUtils.getCourseCard(requestQueue,cardType,cityCode,areaId,this,this,CODE_CARDS);
 
 
     }

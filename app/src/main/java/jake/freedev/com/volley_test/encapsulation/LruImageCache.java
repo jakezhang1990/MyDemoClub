@@ -1,4 +1,4 @@
-package jake.freedev.com.volley_offical;
+package jake.freedev.com.volley_test.encapsulation;
 
 import android.graphics.Bitmap;
 import android.support.annotation.NonNull;

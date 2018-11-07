@@ -1,8 +1,6 @@
-package jake.freedev.com.demo1;
+package jake.freedev.com.volley_test.ui;
 
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatTextView;
@@ -17,9 +15,13 @@ import com.android.volley.toolbox.Volley;
 
 import jake.freedev.com.HTTPurl;
 import jake.freedev.com.R;
-import jake.freedev.com.volley_offical.MainActivityOffical;
+import jake.freedev.com.basic_ui.BaseActivity;
 
-public class MainActivity extends BaseDemo1Activity {
+/**
+ * volley,最简单的使用
+ * simpleTest
+ */
+public class VolleyTestAct0 extends BaseActivity {
     String TAG=this.getClass().getSimpleName();
     AppCompatButton mButton;
     AppCompatTextView mTextView;
@@ -29,7 +31,7 @@ public class MainActivity extends BaseDemo1Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_volley_test0);
         mButton=findViewById(R.id.mButton);
         mTextView=findViewById(R.id.mTextView);
         requestQueue= Volley.newRequestQueue(this);
@@ -52,7 +54,7 @@ public class MainActivity extends BaseDemo1Activity {
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,MainActivityOffical.class));
+                startActivity(new Intent(VolleyTestAct0.this,VolleyTestAct1.class));
             }
         });
 

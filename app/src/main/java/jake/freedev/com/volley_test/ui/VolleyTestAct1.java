@@ -1,4 +1,4 @@
-package jake.freedev.com.volley_offical;
+package jake.freedev.com.volley_test.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,9 +23,10 @@ import org.json.JSONObject;
 
 import jake.freedev.com.HTTPurl;
 import jake.freedev.com.R;
-import jake.freedev.com.volley_offical.encapsulation.listener.RequestErrorResolver;
-import jake.freedev.com.volley_offical.encapsulation.listener.TextResponseListener;
-import jake.freedev.com.volley_offical.encapsulation.VolleyRequest;
+import jake.freedev.com.volley_test.encapsulation.QueueInstanceManager;
+import jake.freedev.com.volley_test.encapsulation.listener.RequestErrorResolver;
+import jake.freedev.com.volley_test.encapsulation.listener.TextResponseListener;
+import jake.freedev.com.volley_test.encapsulation.VolleyRequest;
 
 /**
  * author: yujie.zhang
@@ -33,7 +34,7 @@ import jake.freedev.com.volley_offical.encapsulation.VolleyRequest;
  * content: //官方volley网络请求测试
  * volley支持，字符串.Json.图像
  */
-public class MainActivityOffical extends AppCompatActivity implements TextResponseListener , RequestErrorResolver, View.OnClickListener {
+public class VolleyTestAct1 extends AppCompatActivity implements TextResponseListener , RequestErrorResolver, View.OnClickListener {
     String TAG=this.getClass().getSimpleName();
     AppCompatButton mButton;
     AppCompatTextView mTextView_String,mTextView_jsonObject,mTextView_jsonArray;
@@ -48,12 +49,12 @@ public class MainActivityOffical extends AppCompatActivity implements TextRespon
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_offical);
+        setContentView(R.layout.activity_volley_test1);
 
         initComponents();
-        MySingleton mySingleton= MySingleton.getInstance(this);
-        requestQueue=mySingleton.getRequestQueue();
-        imageLoader=mySingleton.getImageLoader();
+        QueueInstanceManager requestManager = QueueInstanceManager.getInstance(this);
+        requestQueue= requestManager.getRequestQueue();
+        imageLoader= requestManager.getImageLoader();
 
         //字符串请求
         stringRequest=new StringRequest(Request.Method.GET, HTTPurl.url_string_path, new Response.Listener<String>() {
@@ -96,12 +97,12 @@ public class MainActivityOffical extends AppCompatActivity implements TextRespon
         //NetworkImageView展示图片
         mNetworkImageView.setImageUrl(HTTPurl.url_img_path,imageLoader);
 
-        mySingleton.addRequestToRequestQueue(stringRequest);
-        mySingleton.addRequestToRequestQueue(jsonObjectRequest);
-        mySingleton.addRequestToRequestQueue(jsonArrayRequest);
+        requestManager.addRequestToRequestQueue(stringRequest);
+        requestManager.addRequestToRequestQueue(jsonObjectRequest);
+        requestManager.addRequestToRequestQueue(jsonArrayRequest);
 
         //不彻底的封装
-        mySingleton.getRequestQueue().add(VolleyRequest.get(HTTPurl.url_string_path,this,this,100));
+        requestManager.getRequestQueue().add(VolleyRequest.get(HTTPurl.url_string_path,this,this,100));
 
 
 
@@ -139,7 +140,7 @@ public class MainActivityOffical extends AppCompatActivity implements TextRespon
     @Override
     public void onClick(View v) {
         if(v.equals(mButton)){
-            startActivity(new Intent(this,MainEncapsulationAct.class));
+            startActivity(new Intent(this,VolleyTestAct2.class));
         }
     }
 }

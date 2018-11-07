@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".volley_offical.MainEncapsulationAct">
+    tools:context=".volley_test.ui.VolleyTestAct2">
 
     <android.support.v7.widget.AppCompatTextView
     android:id="@+id/mTextView1"

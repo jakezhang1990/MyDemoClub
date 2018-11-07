@@ -1,4 +1,4 @@
-package jake.freedev.com.volley_offical.encapsulation;
+package jake.freedev.com.volley_test.encapsulation;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
@@ -12,8 +12,8 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Map;
 
-import jake.freedev.com.volley_offical.encapsulation.listener.RequestErrorResolver;
-import jake.freedev.com.volley_offical.encapsulation.listener.TextResponseListener;
+import jake.freedev.com.volley_test.encapsulation.listener.RequestErrorResolver;
+import jake.freedev.com.volley_test.encapsulation.listener.TextResponseListener;
 
 /**
  * author: yujie.zhang

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".volley_offical.MainActivityOffical">
+    tools:context=".volley_test.ui.VolleyTestAct1">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -70,7 +70,7 @@
             android:id="@+id/mButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="sendHttp"
+            android:text="深度封装volley"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/mTextView_customVolley" />

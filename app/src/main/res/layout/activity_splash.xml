@@ -6,4 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".SplashActivity">
 
+
+
+
+
+
 </android.support.constraint.ConstraintLayout>
