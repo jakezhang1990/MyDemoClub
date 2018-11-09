@@ -5,20 +5,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+
     <Button
         android:id="@+id/volleyTest"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Volley测试"
         android:textAllCaps="false"
-        android:textSize="17sp"
-        android:text="Volley测试"/>
+        android:textSize="17sp" />
+
     <Button
         android:id="@+id/OKhttpTest"
-        app:layout_constraintTop_toBottomOf="@id/volleyTest"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="OKhttp测试"
         android:textAllCaps="false"
         android:textSize="17sp"
-        android:text="OKhttp测试"/>
+        app:layout_constraintTop_toBottomOf="@id/volleyTest" />
+
+    <Button
+        android:id="@+id/recycleViewTest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="recycleView测试"
+        android:textAllCaps="false"
+        android:textSize="17sp"
+        app:layout_constraintTop_toBottomOf="@id/OKhttpTest" />
 
 </android.support.constraint.ConstraintLayout>
