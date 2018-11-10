@@ -49,8 +49,10 @@
         <activity
             android:name=".volley_test.ui.VolleyTestAct2"
             android:label="深度封装volley" />
-        <activity android:name=".recycleview_test.ui.RVsimpleActivity"
-            android:label="RecyclerView的简单使用"></activity>
+        <activity
+            android:name=".recyclerview_test.ui.SimpleActivity"
+            android:label="RecyclerView的简单使用" />
+        <activity android:name=".recyclerview_test.ui.WaterfallActivity"></activity>
     </application>
 
 </manifest>

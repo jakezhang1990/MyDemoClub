@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import jake.freedev.com.recycleview_test.ui.RVsimpleActivity;
+import jake.freedev.com.recyclerview_test.ui.SimpleActivity;
 import jake.freedev.com.volley_test.ui.VolleyTestAct0;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(this, "OKhttp测试", Toast.LENGTH_SHORT).show();
         }else if(v.equals(recycleViewTest)){
             //recycleView
-            startActivity(new Intent(this, RVsimpleActivity.class));
+            startActivity(new Intent(this, SimpleActivity.class));
         }
     }
 }
