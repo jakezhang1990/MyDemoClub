@@ -36,6 +36,11 @@ ImageLoader对图片加载、缓存处理等都进行了优化和封装。
 Picasso框架
 OkHttp框架
 ```
+```xml
+动态申请权限开源框架
+  https://github.com/tbruyelle/RxPermissions
+```
+
 安卓基础笔记
 ```groovy
 四大组件；
